@@ -3,12 +3,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
 	repositories {
-        maven(uri("https://dl.bintray.com/kotlin/kotlin-dev"))
-        maven(uri("https://dl.bintray.com/kotlin/kotlin-eap"))
-        maven(uri("https://plugins.gradle.org/m2/"))
-
+//        maven(uri("https://dl.bintray.com/kotlin/kotlin-dev"))
+//        maven(uri("https://dl.bintray.com/kotlin/kotlin-eap"))
+//        maven(uri("https://plugins.gradle.org/m2/"))
+//
         mavenCentral()
-        jcenter()
+//        jcenter()
 	}
 	dependencies {
         classpath(cfg.springgradle.depMgmtPlugin.depStr)
@@ -30,7 +30,7 @@ plugins {
 
 repositories {
     mavenCentral()
-    jcenter()
+//    jcenter()
 }
 
 tasks.withType<KotlinCompile> {
