@@ -4,9 +4,6 @@ import javax.persistence.*
 
 @Entity
 data class Book (
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: Long,
-
     var title: String,
     var isbn: String,
     var publisher: String,
@@ -17,9 +14,12 @@ data class Book (
         joinColumns = [JoinColumn(name = "book_id")],
         inverseJoinColumns = [JoinColumn(name = "author_id")]
     )
-    val authors: Set<Author>
+    val authors: MutableSet<Author> = mutableSetOf(),
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    var id: Long? = null
 ) {
     override fun equals(other: Any?) = other is Book && id == other.id
 
-    override fun hashCode() = id.hashCode()
+    override fun hashCode() = id!!.hashCode()
 }
