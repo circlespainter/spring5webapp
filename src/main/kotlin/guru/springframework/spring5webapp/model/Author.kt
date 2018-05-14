@@ -15,5 +15,5 @@ data class Author (
 ) {
     override fun equals(other: Any?) = other is Book && id == other.id
 
-    override fun hashCode() = id!!.hashCode()
+    override fun hashCode() = id?.hashCode() ?: 0
 }
