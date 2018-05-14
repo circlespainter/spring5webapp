@@ -6,7 +6,9 @@ import javax.persistence.*
 data class Book (
     var title: String,
     var isbn: String,
-    var publisher: String,
+
+    @OneToOne
+    var publisher: Publisher,
 
     @ManyToMany
     @JoinTable (
